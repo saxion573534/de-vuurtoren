@@ -9,4 +9,7 @@ module org.saxion.devuurtoren {
 
     opens org.saxion.devuurtoren to javafx.fxml;
     exports org.saxion.devuurtoren;
+    exports org.saxion.devuurtoren.controllers;
+    opens org.saxion.devuurtoren.controllers to javafx.fxml;
+
 }
