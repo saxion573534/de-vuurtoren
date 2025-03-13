@@ -2,24 +2,81 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="221.0" prefWidth="329.0" spacing="20.0" style="-fx-background-color: rgb(20,20,20);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.LoginScreenController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-
-    <Label fx:id="counterText" text="Counter: 0" textFill="WHITE">
-      <font>
-         <Font name="JetBrains Mono Regular" size="22.0" />
-      </font></Label>
-    <Button defaultButton="true" onAction="#onButtonClick" style="-fx-background-color: rgb(2,2,2); -fx-background-radius: 10; -fx-background-insets: 0px;" text="Hello!" textFill="WHITE">
-      <effect>
-         <Glow level="1.0" />
-      </effect>
-      <font>
-         <Font name="JetBrains Mono Regular" size="18.0" />
-      </font></Button>
-</VBox>
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.LoginScreenController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="236.0" style="-fx-background-color: rgb(220,220,220);">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../logo.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="195.0" text="De Vuurtoren" textAlignment="CENTER" textFill="#87123f">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="235.0" prefHeight="400.0" prefWidth="366.0" style="-fx-background-color: rgb(237, 237, 237);">
+         <children>
+            <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="216.0" prefWidth="338.0">
+               <children>
+                  <Label text="User:">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="userTextField" prefHeight="31.0" prefWidth="375.0" promptText="Type your username here...">
+                     <font>
+                        <Font name="JetBrains Mono Regular" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="10.0" layoutY="10.0" text="Password:">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="20.0" />
+                     </padding>
+                  </Label>
+                  <PasswordField fx:id="passwordTextField" prefHeight="31.0" prefWidth="360.0" promptText="Type your password here...">
+                     <font>
+                        <Font name="JetBrains Mono Regular" size="12.0" />
+                     </font>
+                  </PasswordField>
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="9.0" prefWidth="360.0" text="Login">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="errorText" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="72.0" prefHeight="23.0" prefWidth="328.0" text="Wrong user or password" textAlignment="CENTER" textFill="#cc1212" visible="false">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="19.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="25.0" left="22.0" right="22.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
