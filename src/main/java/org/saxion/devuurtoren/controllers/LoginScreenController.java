@@ -27,8 +27,16 @@ public class LoginScreenController {
             errorText.setVisible(false);
 
             Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
+            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 420, currentStage);
+            currentStage.setResizable(true);
         } else {
+
+            // TODO: Remove when done testing...
+            Stage currentStage = (Stage) userTextField.getScene().getWindow();
+            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 420, currentStage);
+            currentStage.setResizable(true);
+            // TODO: Remove when done testing...
+
             errorText.setVisible(true);
             passwordTextField.setText("");
         }

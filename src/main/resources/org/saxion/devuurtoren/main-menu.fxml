@@ -2,24 +2,25 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="221.0" prefWidth="329.0" spacing="20.0" style="-fx-background-color: rgb(20,20,20);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.MainMenuController">
+<VBox alignment="CENTER" prefHeight="221.0" prefWidth="329.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.MainMenuController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="35.0" left="35.0" right="35.0" top="30.0" />
     </padding>
-
-    <Label fx:id="counterText" text="Counter: 0" textFill="WHITE">
-      <font>
-         <Font name="JetBrains Mono Regular" size="22.0" />
-      </font></Label>
-    <Button defaultButton="true" onAction="#onButtonClick" style="-fx-background-color: rgb(2,2,2); -fx-background-radius: 10; -fx-background-insets: 0px;" text="Hello!" textFill="WHITE">
-      <effect>
-         <Glow level="1.0" />
-      </effect>
-      <font>
-         <Font name="JetBrains Mono Regular" size="18.0" />
-      </font></Button>
+   <children>
+      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTeamsButtonClick" text="Beheer teams" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="JetBrains Mono Bold" size="20.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="113.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTournamentsButtonClick" text="Beheer toernooien" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="JetBrains Mono Bold" size="20.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="113.0" layoutY="131.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStandsButtonClick" text="Toon standen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="JetBrains Mono Bold" size="20.0" />
+         </font></Button>
+   </children>
 </VBox>

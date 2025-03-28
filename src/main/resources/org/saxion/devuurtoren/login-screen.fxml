@@ -15,7 +15,7 @@
                   <Image url="@../../../logo.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="195.0" text="De Vuurtoren" textAlignment="CENTER" textFill="#87123f">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="195.0" text="De Vuurtoren" textAlignment="CENTER" textFill="#393939">
                <font>
                   <Font name="JetBrains Mono Bold" size="22.0" />
                </font>

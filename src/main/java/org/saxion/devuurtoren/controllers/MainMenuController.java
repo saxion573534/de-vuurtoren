@@ -10,26 +10,19 @@ import javafx.util.Duration;
 
 public class MainMenuController {
 
-    private int counter = 0;
-
     @FXML
-    private Label counterText;
-
-    @FXML
-    protected void onButtonClick() {
-
-        MotionBlur motionBlur = new MotionBlur(90, 0);
-        counterText.setEffect(motionBlur);
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(90), new KeyValue(motionBlur.radiusProperty(), 20)),
-                new KeyFrame(Duration.millis(190), new KeyValue(motionBlur.radiusProperty(), 0)),
-                new KeyFrame(Duration.millis(140), event -> {
-                    counterText.setText("Counter: %d".formatted(++counter));
-                })
-        );
-        timeline.setCycleCount(1);
-        timeline.play();
-
+    public void onTeamsButtonClick() {
+        System.out.println("Open Teams Tab");
     }
+
+    @FXML
+    public void onTournamentsButtonClick() {
+        System.out.println("Open Tournaments Tab");
+    }
+
+    @FXML
+    public void onStandsButtonClick() {
+        System.out.println("Open nieuwe scherm voor standen op een andere beeld.");
+    }
+
 }
