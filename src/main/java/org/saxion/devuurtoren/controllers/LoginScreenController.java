@@ -17,6 +17,7 @@ public class LoginScreenController {
 
     @FXML
     private Label errorText;
+
     @FXML
     protected void onButtonClick() {
 
@@ -27,14 +28,12 @@ public class LoginScreenController {
             errorText.setVisible(false);
 
             Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 420, currentStage);
-            currentStage.setResizable(true);
+            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
         } else {
 
             // TODO: Remove when done testing...
             Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 420, currentStage);
-            currentStage.setResizable(true);
+            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
             // TODO: Remove when done testing...
 
             errorText.setVisible(true);

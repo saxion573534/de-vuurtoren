@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="440.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="276.0" spacing="2.0">
+         <children>
+            <Label fx:id="nameLabel" prefHeight="32.0" prefWidth="276.0" text="School Naam">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="addressLabel" layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="275.0" text="Adres">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Modify" />
+      <Button layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Delete" />
+   </children>
+</HBox>

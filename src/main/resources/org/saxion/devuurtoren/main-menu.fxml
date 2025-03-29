@@ -5,22 +5,39 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="221.0" prefWidth="329.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.MainMenuController">
-    <padding>
-        <Insets bottom="35.0" left="35.0" right="35.0" top="30.0" />
-    </padding>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.MainMenuController">
    <children>
-      <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTeamsButtonClick" text="Beheer teams" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+      <VBox alignment="CENTER" layoutX="75.0" layoutY="21.0" prefHeight="372.0" prefWidth="450.0" spacing="15.0">
+          <padding>
+              <Insets bottom="35.0" left="35.0" right="35.0" top="30.0" />
+          </padding>
+         <children>
+            <Label fx:id="optionsLabel" text="Opties">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="45.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTeamsButtonClick" text="Beheer teams" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="113.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTournamentsButtonClick" text="Beheer toernooien" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="113.0" layoutY="131.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStandsButtonClick" text="Toon standen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="JetBrains Mono Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Button layoutX="466.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="32.0" prefWidth="120.0" text="Log uit">
          <font>
-            <Font name="JetBrains Mono Bold" size="20.0" />
-         </font></Button>
-      <Button alignment="CENTER" layoutX="113.0" layoutY="110.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTournamentsButtonClick" text="Beheer toernooien" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-         <font>
-            <Font name="JetBrains Mono Bold" size="20.0" />
-         </font></Button>
-      <Button alignment="CENTER" layoutX="113.0" layoutY="131.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onStandsButtonClick" text="Toon standen" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-         <font>
-            <Font name="JetBrains Mono Bold" size="20.0" />
-         </font></Button>
+            <Font name="JetBrains Mono Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
-</VBox>
+</AnchorPane>

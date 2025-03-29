@@ -1,27 +1,34 @@
 package org.saxion.devuurtoren.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.effect.MotionBlur;
-import javafx.util.Duration;
+import javafx.stage.Stage;
+import org.saxion.devuurtoren.util.WindowHelper;
 
 public class MainMenuController {
 
     @FXML
-    public void onTeamsButtonClick() {
-        System.out.println("Open Teams Tab");
+    Label optionsLabel;
+
+    @FXML
+    protected void onLogoutButtonClick() {
+        Stage currentStage = (Stage) optionsLabel.getScene().getWindow();
+        WindowHelper.openWindow("login-screen.fxml", "Toernooi Manager", 600, 400, currentStage);
     }
 
     @FXML
-    public void onTournamentsButtonClick() {
+    protected void onTeamsButtonClick() {
+        Stage currentStage = (Stage) optionsLabel.getScene().getWindow();
+        WindowHelper.openWindow("teams-screen.fxml", "Toernooi Manager", 600, 400, currentStage);
+    }
+
+    @FXML
+    protected void onTournamentsButtonClick() {
         System.out.println("Open Tournaments Tab");
     }
 
     @FXML
-    public void onStandsButtonClick() {
+    protected void onStandsButtonClick() {
         System.out.println("Open nieuwe scherm voor standen op een andere beeld.");
     }
 
