@@ -28,12 +28,12 @@ public class LoginScreenController {
             errorText.setVisible(false);
 
             Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
+            WindowHelper.openWindow("main-menu.fxml", "De Vuurtoren", 600, 400, currentStage);
         } else {
 
             // TODO: Remove when done testing...
             Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
+            WindowHelper.openWindow("main-menu.fxml", "De Vuurtoren", 600, 400, currentStage);
             // TODO: Remove when done testing...
 
             errorText.setVisible(true);

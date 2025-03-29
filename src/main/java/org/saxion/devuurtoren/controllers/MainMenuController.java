@@ -13,13 +13,13 @@ public class MainMenuController {
     @FXML
     protected void onLogoutButtonClick() {
         Stage currentStage = (Stage) optionsLabel.getScene().getWindow();
-        WindowHelper.openWindow("login-screen.fxml", "Toernooi Manager", 600, 400, currentStage);
+        WindowHelper.openWindow("login-screen.fxml", "De Vuurtoren", 600, 400, currentStage);
     }
 
     @FXML
     protected void onTeamsButtonClick() {
         Stage currentStage = (Stage) optionsLabel.getScene().getWindow();
-        WindowHelper.openWindow("teams-screen.fxml", "Toernooi Manager", 600, 400, currentStage);
+        WindowHelper.openWindow("teams-screen.fxml", "De Vuurtoren", 600, 400, currentStage);
     }
 
     @FXML

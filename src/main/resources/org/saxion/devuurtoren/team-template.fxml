@@ -20,7 +20,7 @@
             </Label>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Modify" />
-      <Button layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Delete" />
+      <Button fx:id="modifyTeamButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Modify" />
+      <Button fx:id="deleteTeamButton" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Verwijder" />
    </children>
 </HBox>

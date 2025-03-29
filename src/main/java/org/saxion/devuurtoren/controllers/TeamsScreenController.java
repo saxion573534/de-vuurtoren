@@ -6,31 +6,97 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.saxion.devuurtoren.Main;
 import org.saxion.devuurtoren.util.WindowHelper;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TeamsScreenController {
 
-    String[][] schools = new String[][]{
-            {"St. Jans College", "Plein 123, 1011AB Amsterdam"},
-            {"Verenigde Scholengemeenschap", "Laan van de Vrijheid 56, 1234CD Rotterdam"},
-            {"Haven College", "Havenstraat 22, 2345EF Den Haag"},
-            {"De Toekomstschool", "Toekomstlaan 10, 3456GH Utrecht"},
-            {"Albert Einstein Lyceum", "Einsteinweg 4, 4567IJ Groningen"},
-            {"Vrije School De Zonsopgang", "Zonsopgangstraat 8, 5678KL Haarlem"}
-    };
+    private void addTeam(String schoolName, String schoolAddress) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("team-template.fxml"));
+            Node teamNode = fxmlLoader.load();
+
+            Label nameLabel = (Label) teamNode.lookup("#nameLabel");
+            if (nameLabel != null) {
+                nameLabel.setText(schoolName);
+            }
+
+            Label addressLabel = (Label) teamNode.lookup("#addressLabel");
+            if (addressLabel != null) {
+                addressLabel.setText(schoolAddress);
+            }
+
+            Button deleteButton = (Button) teamNode.lookup("#deleteTeamButton");
+            if (deleteButton != null) {
+                deleteButton.setOnAction(event -> {
+                    removeTeam(schoolName, schoolAddress);
+                });
+            }
+
+            Button modifyButton = (Button) teamNode.lookup("#modifyTeamButton");
+            if (modifyButton != null) {
+                modifyButton.setOnAction(event -> {
+
+                });
+            }
+
+            teamsContainer.getChildren().add(teamNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void removeTeam(String schoolName, String schoolAddress) {
+        for (Node teamNode : teamsContainer.getChildren()) {
+            Label nameLabel = (Label) teamNode.lookup("#nameLabel");
+            Label addressLabel = (Label) teamNode.lookup("#addressLabel");
+
+            if (nameLabel != null && addressLabel != null) {
+                if (nameLabel.getText().equals(schoolName) && addressLabel.getText().equals(schoolAddress)) {
+                    teamsContainer.getChildren().remove(teamNode);
+                    System.out.println("Team '" + schoolName + "' has been removed...");
+                    break;
+                }
+            }
+        }
+        String filePath = "teams_data.csv";
+        File file = new File(filePath);
+
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length == 2 && !(parts[0].equals(schoolName) && parts[1].equals(schoolAddress))) {
+                    lines.add(line);
+                }
+            }
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                for (String updatedLine : lines) {
+                    writer.write(updatedLine);
+                    writer.newLine();
+                }
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error updating the CSV file: " + e.getMessage());
+        }
+    }
 
     @FXML
     VBox teamsContainer;
-
-    @FXML
-    HBox template;
 
     @FXML
     Label teamsLabel;
@@ -38,34 +104,59 @@ public class TeamsScreenController {
     @FXML
     protected void onBackButtonClick() {
         Stage currentStage = (Stage) teamsLabel.getScene().getWindow();
-        WindowHelper.openWindow("main-menu.fxml", "Toernooi Manager", 600, 400, currentStage);
+        WindowHelper.openWindow("main-menu.fxml", "De Vuurtoren", 600, 400, currentStage);
     }
 
-    protected void generateTeam() {
-        for (String[] school : schools) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("team-template.fxml"));
-                Node teamNode = fxmlLoader.load();
+    @FXML
+    TextField schoolAddressTextField;
 
-                Label nameLabel = (Label) teamNode.lookup("#nameLabel");
-                if (nameLabel != null) {
-                    nameLabel.setText(school[0]);
-                }
+    @FXML
+    TextField schoolNameTextField;
 
-                Label addressLabel = (Label) teamNode.lookup("#addressLabel");
-                if (addressLabel != null) {
-                    addressLabel.setText(school[1]);
-                }
+    @FXML
+    protected void onTeamCreateButtonClick() {
 
-                teamsContainer.getChildren().add(teamNode);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String schoolName = schoolNameTextField.getText().trim();
+        String schoolAddress = schoolAddressTextField.getText().trim();
+
+        if (schoolName.isEmpty() || schoolAddress.isEmpty()) {
+            System.err.println("Something is missing...");
+            return;
         }
+
+        String file = "teams_data.csv";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.newLine();
+            writer.write(schoolName + ";" + schoolAddress);
+            addTeam(schoolName, schoolAddress);
+            System.out.println("Team successfully created and saved to CSV...");
+            System.out.println(schoolName + ";" + schoolAddress);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+
+        schoolNameTextField.setText("");
+        schoolAddressTextField.setText("");
     }
 
     @FXML
     public void initialize() {
-        generateTeam();
+        String filePath = "teams_data.csv";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            reader.readLine();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length == 2) {
+                    String schoolName = parts[0];
+                    String schoolAddress = parts[1];
+                    addTeam(schoolName, schoolAddress);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading from file: " + e.getMessage());
+        }
     }
 }

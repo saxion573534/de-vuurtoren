@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image("logo.png"));
         stage.setResizable(false);
-        WindowHelper.openWindow("login-screen.fxml", "Toernooi Manager", 600, 400, stage);
+        WindowHelper.openWindow("login-screen.fxml", "De Vuurtoren", 600, 400, stage);
     }
 
     public static void main(String[] args) {
