@@ -1,11 +1,15 @@
 package org.saxion.devuurtoren.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.saxion.devuurtoren.Main;
 import org.saxion.devuurtoren.util.WindowHelper;
 
 import java.io.*;
@@ -13,6 +17,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModifyTeamScreenController {
+
+    private void addPlayer(String name) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("player-template.fxml"));
+            Node teamNode = fxmlLoader.load();
+
+            Label nameLabel = (Label) teamNode.lookup("#playerNameLabel");
+            if (nameLabel != null) {
+                nameLabel.setText(name);
+            }
+
+            Button deleteButton = (Button) teamNode.lookup("#deletePlayerButton");
+            if (deleteButton != null) {
+                deleteButton.setOnAction(event -> {
+//                    removeTeam(schoolName, schoolAddress);
+                });
+            }
+
+            playersContainer.getChildren().add(teamNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    VBox playersContainer;
 
     @FXML
     Label spelersLabel;
@@ -55,6 +85,31 @@ public class ModifyTeamScreenController {
         schoolAddressTextField.setText(schoolAddress);
         this.oldSchoolName = schoolName;
         this.oldSchoolAddress = schoolAddress;
+
+        generatePlayers();
+    }
+
+    private void generatePlayers() {
+        String filePath = "all_players_data.csv";
+        File file = new File(filePath);
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+
+                if (parts.length == 3) {
+                    String playerName = parts[0] + " " + parts[1];
+                    String teamName = parts[2];
+
+                    if (teamName.equals(oldSchoolName)) {
+                        addPlayer(playerName);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void updateCSVFile(String newSchoolName, String newSchoolAddress) {
