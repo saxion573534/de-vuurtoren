@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -46,7 +48,9 @@ public class TeamsScreenController {
             Button modifyButton = (Button) teamNode.lookup("#modifyTeamButton");
             if (modifyButton != null) {
                 modifyButton.setOnAction(event -> {
-
+                    Stage stage = (Stage) teamsLabel.getScene().getWindow();
+                    ModifyTeamScreenController modifyTeamScreenController = WindowHelper.openWindow("modify-team-screen.fxml", "De Vuurtoren", 600, 400, stage, true);
+                    modifyTeamScreenController.initialize(schoolName, schoolAddress);
                 });
             }
 
@@ -64,7 +68,7 @@ public class TeamsScreenController {
             if (nameLabel != null && addressLabel != null) {
                 if (nameLabel.getText().equals(schoolName) && addressLabel.getText().equals(schoolAddress)) {
                     teamsContainer.getChildren().remove(teamNode);
-                    System.out.println("Team '" + schoolName + "' has been removed...");
+                    WindowHelper.showAlert("Team '" + schoolName + "' is verwijderd.");
                     break;
                 }
             }
@@ -120,7 +124,7 @@ public class TeamsScreenController {
         String schoolAddress = schoolAddressTextField.getText().trim();
 
         if (schoolName.isEmpty() || schoolAddress.isEmpty()) {
-            System.err.println("Something is missing...");
+            WindowHelper.showAlert("Vul zowel de naam als het adres van de school in.", Alert.AlertType.ERROR);
             return;
         }
 
@@ -130,7 +134,7 @@ public class TeamsScreenController {
             writer.newLine();
             writer.write(schoolName + ";" + schoolAddress);
             addTeam(schoolName, schoolAddress);
-            System.out.println("Team successfully created and saved to CSV...");
+            WindowHelper.showAlert("Team '" + schoolName + "' is gemaakt.");
             System.out.println(schoolName + ";" + schoolAddress);
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
@@ -138,6 +142,7 @@ public class TeamsScreenController {
 
         schoolNameTextField.setText("");
         schoolAddressTextField.setText("");
+
     }
 
     @FXML

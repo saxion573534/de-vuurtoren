@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.ModifyTeamScreenController">
+    <children>
+        <VBox alignment="CENTER" layoutX="109.0" layoutY="263.0" prefHeight="87.0" prefWidth="383.0" spacing="5.0">
+            <children>
+                <TextField fx:id="schoolNameTextField" prefWidth="217.0" promptText="Haven College">
+                    <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                    </font></TextField>
+                <TextField fx:id="schoolAddressTextField" layoutX="10.0" layoutY="41.0" promptText="2345EF Den Haag">
+                    <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                    </font></TextField>
+            </children></VBox>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+            <font>
+                <Font name="JetBrains Mono Bold" size="14.0" />
+            </font>
+        </Button>
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="58.0" layoutY="60.0" prefHeight="203.0" prefWidth="485.0">
+            <content>
+                <VBox fx:id="spelersContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        <Label fx:id="spelersLabel" contentDisplay="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="48.0" prefWidth="152.0" text="Spelers" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="JetBrains Mono Bold" size="35.0" />
+            </font>
+        </Label>
+        <Button defaultButton="true" layoutX="224.0" layoutY="350.0" mnemonicParsing="false" onAction="#onSaveButtonClick" prefHeight="33.0" prefWidth="152.0" text="Opslaan">
+            <font>
+                <Font name="JetBrains Mono Bold" size="21.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

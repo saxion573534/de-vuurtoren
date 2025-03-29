@@ -42,6 +42,22 @@ public class WindowHelper {
         }
     }
 
+    public static <T> T openWindow(String fxmlResource, String title, int width, int height, Stage stage, boolean shouldReturn) {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlResource));
+        try {
+
+            var scene = new Scene(fxmlLoader.load(), width, height);
+            stage.setTitle(title);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            showAlert("Error opening window for " + fxmlResource + ".\n\n" + e, Alert.AlertType.ERROR);
+        }
+        return fxmlLoader.getController();
+    }
+
     /***
      * close any window
      * @param randomControlOnWindow One of the controls on the window. May be any control (button, label, ...)
