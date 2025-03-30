@@ -52,6 +52,58 @@ public class TournamentsScreenController {
         }
     }
 
+    private void removeTournament(String name, String location, String sport) {
+        String filePath = "tournaments_data.csv";
+        StringBuilder fileContent = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            boolean removed = false;
+
+            fileContent.append(reader.readLine()).append("\n");
+
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+
+                String[] parts = line.split(";");
+                if (parts.length >= 5) {
+                    String tournamentName = parts[0];
+                    String tournamentLocation = parts[1];
+                    String tournamentSport = parts[4];
+
+                    if (tournamentName.equals(name) && tournamentLocation.equals(location) && tournamentSport.equals(sport)) {
+                        removed = true;
+                        continue;
+                    }
+                }
+
+                fileContent.append(line).append("\n");
+            }
+
+            if (removed) {
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+                    writer.write(fileContent.toString());
+                    // tournament has been removed
+                }
+            } else {
+                System.err.println("Unhandeled exception lol");
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+        for (Node node : tournamentsContainer.getChildren()) {
+            Label nameLabel = (Label) node.lookup("#nameLabel");
+            if (nameLabel != null && nameLabel.getText().contains(name) && nameLabel.getText().contains(sport)) {
+                tournamentsContainer.getChildren().remove(node);
+                break;
+            }
+        }
+    }
+
+
     private void addTournament(String name, String location, int numberOfFields, String formattedDate, String sport) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("tournament-template.fxml"));
@@ -80,7 +132,7 @@ public class TournamentsScreenController {
             Button deleteButton = (Button) teamNode.lookup("#deleteTeamButton");
             if (deleteButton != null) {
                 deleteButton.setOnAction(event -> {
-//                    removeTeam(schoolName, schoolAddress);
+                    removeTournament(name, location, sport);
                 });
             }
 
