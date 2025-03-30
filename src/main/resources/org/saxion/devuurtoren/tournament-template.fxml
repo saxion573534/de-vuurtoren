@@ -4,18 +4,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="447.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="541.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="276.0" spacing="2.0">
+      <VBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="206.0" spacing="2.0">
          <children>
-            <Label fx:id="nameLabel" prefHeight="32.0" prefWidth="276.0" text="Toernooi naam">
+            <Label fx:id="nameLabel" prefHeight="32.0" prefWidth="276.0" text="Toernooi naam (Voetbal)">
                <font>
-                  <Font size="22.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label fx:id="addressLabel" layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="275.0" text="Adres">
                <font>
                   <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="55.0" prefWidth="152.0" spacing="2.0">
+         <children>
+            <Label fx:id="fieldsLabel" prefHeight="32.0" prefWidth="276.0" text="Aantal velden: 3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLabel" layoutX="10.0" layoutY="29.0" prefHeight="17.0" prefWidth="275.0" text="Datum: 18/03/2025">
+               <font>
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>

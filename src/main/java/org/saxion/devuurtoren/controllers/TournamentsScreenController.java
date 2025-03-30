@@ -59,12 +59,22 @@ public class TournamentsScreenController {
 
             Label nameLabel = (Label) teamNode.lookup("#nameLabel");
             if (nameLabel != null) {
-                nameLabel.setText(name);
+                nameLabel.setText(name + " (" + sport + ")");
             }
 
             Label addressLabel = (Label) teamNode.lookup("#addressLabel");
             if (addressLabel != null) {
                 addressLabel.setText(location);
+            }
+
+            Label fieldsLabel = (Label) teamNode.lookup("#fieldsLabel");
+            if (fieldsLabel != null) {
+                fieldsLabel.setText("Aantal velden: " + numberOfFields);
+            }
+
+            Label dateLabel = (Label) teamNode.lookup("#dateLabel");
+            if (dateLabel != null) {
+                dateLabel.setText("Datum: " + formattedDate);
             }
 
             Button deleteButton = (Button) teamNode.lookup("#deleteTeamButton");

@@ -11,7 +11,7 @@
             <Font name="JetBrains Mono Bold" size="14.0" />
          </font>
       </Button>
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="58.0" layoutY="60.0" prefHeight="153.0" prefWidth="485.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="16.0" layoutY="62.0" prefHeight="153.0" prefWidth="569.0">
          <content>
             <VBox fx:id="tournamentsContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
          </content>
