@@ -1,10 +1,13 @@
 package org.saxion.devuurtoren.util;
 
+import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.saxion.devuurtoren.Main;
 
 public class WindowHelper {
@@ -36,6 +39,9 @@ public class WindowHelper {
             stage.setTitle(title);
             stage.setScene(scene);
             stage.show();
+            Platform.runLater(() -> {
+                scene.getRoot().requestFocus();
+            });
 
         } catch (Exception e) {
             showAlert("Error opening window for " + fxmlResource + ".\n\n" + e, Alert.AlertType.ERROR);
@@ -51,7 +57,9 @@ public class WindowHelper {
             stage.setTitle(title);
             stage.setScene(scene);
             stage.show();
-
+            Platform.runLater(() -> {
+                scene.getRoot().requestFocus();
+            });
         } catch (Exception e) {
             showAlert("Error opening window for " + fxmlResource + ".\n\n" + e, Alert.AlertType.ERROR);
         }

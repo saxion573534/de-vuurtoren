@@ -24,7 +24,8 @@ public class MainMenuController {
 
     @FXML
     protected void onTournamentsButtonClick() {
-        System.out.println("Open Tournaments Tab");
+        Stage currentStage = (Stage) optionsLabel.getScene().getWindow();
+        WindowHelper.openWindow("tournaments-screen.fxml", "De Vuurtoren", 600, 400, currentStage);
     }
 
     @FXML

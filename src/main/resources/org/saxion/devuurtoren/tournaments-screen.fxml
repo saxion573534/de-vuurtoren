@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.TournamentsScreenController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Button>
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="58.0" layoutY="60.0" prefHeight="153.0" prefWidth="485.0">
+         <content>
+            <VBox fx:id="tournamentsContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="tournamentLabel" contentDisplay="CENTER" layoutX="191.0" layoutY="14.0" prefHeight="48.0" prefWidth="218.0" text="Toernooien" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="35.0" />
+         </font>
+      </Label>
+      <Button defaultButton="true" layoutX="204.0" layoutY="350.0" mnemonicParsing="false" onAction="#onTournamentCreateButtonClick" prefHeight="44.0" prefWidth="192.0" text="Maak Toernooi">
+         <font>
+            <Font name="JetBrains Mono Bold" size="21.0" />
+         </font>
+      </Button>
+      <HBox alignment="BOTTOM_LEFT" layoutX="51.0" layoutY="218.0" prefHeight="121.0" prefWidth="500.0" spacing="10.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="121.0" prefWidth="149.0" spacing="5.0">
+               <children>
+                  <Label fx:id="teamsLabel11" contentDisplay="CENTER" layoutX="10.0" layoutY="24.0" prefHeight="23.0" prefWidth="149.0" text="Datum" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dateField" promptText="18/03/2005" />
+                  <Label fx:id="teamsLabel111" contentDisplay="CENTER" prefHeight="23.0" prefWidth="149.0" text="Open velden" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fieldsNumberField" prefHeight="30.0" prefWidth="116.0" promptText="6">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="121.0" prefWidth="235.0" spacing="5.0">
+               <children>
+                  <Label fx:id="teamsLabel11" contentDisplay="CENTER" prefHeight="23.0" prefWidth="219.0" text="Locatie" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="locationTextField" prefHeight="30.0" prefWidth="116.0" promptText="Waterleidingstraat 115">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="teamsLabel1" contentDisplay="CENTER" prefHeight="23.0" prefWidth="221.0" text="Toernooi Naam" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tournamentNameTextField" prefHeight="30.0" prefWidth="116.0" promptText="Edelstenen Cup">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="169.0" layoutY="10.0" prefHeight="121.0" prefWidth="149.0" spacing="5.0">
+               <children>
+                  <Label fx:id="teamsLabel111" contentDisplay="CENTER" prefHeight="23.0" prefWidth="155.0" text="Sport" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="JetBrains Mono Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
