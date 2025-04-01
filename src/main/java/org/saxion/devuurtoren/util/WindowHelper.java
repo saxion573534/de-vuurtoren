@@ -22,6 +22,12 @@ public class WindowHelper {
         openWindow(fxmlResource, title, width, height, new Stage());
     }
 
+    public static Stage  openWindow(String fxmlResource, String title, int width, int height, boolean shouldReturn) {
+        Stage stage = new Stage();
+        openWindow(fxmlResource, title, width, height, stage);
+        return stage;
+    }
+
     /***
      * Open a new window with the given fxml file
      * @param fxmlResource The fxml filename without path

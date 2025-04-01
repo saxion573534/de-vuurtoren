@@ -28,9 +28,13 @@ public class MainMenuController {
         WindowHelper.openWindow("tournaments-screen.fxml", "De Vuurtoren", 600, 400, currentStage);
     }
 
+    private static Stage standsStage = null;
+
     @FXML
     protected void onStandsButtonClick() {
-        System.out.println("Open nieuwe scherm voor standen op een andere beeld.");
+        if (standsStage == null || !standsStage.isShowing()) {
+            standsStage = WindowHelper.openWindow("stands-screen.fxml", "De Vuurtoren", 800, 600, true);
+        }
     }
 
 }
