@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.saxion.devuurtoren.Main;
+import org.saxion.devuurtoren.classes.Team;
 import org.saxion.devuurtoren.util.WindowHelper;
 
 import java.io.*;
@@ -48,7 +49,6 @@ public class TeamsScreenController {
                     modifyTeamScreenController.initialize(schoolName, schoolAddress);
                 });
             }
-
             teamsContainer.getChildren().add(teamNode);
         } catch (IOException e) {
             e.printStackTrace();

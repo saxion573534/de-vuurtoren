@@ -34,7 +34,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="modifyTeamButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" />
-      <Button fx:id="deleteTeamButton" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Verwijder" />
+      <Button fx:id="modifyTournamentButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="74.0" text="Bewerk" />
+      <Button fx:id="deleteTournamentButton" layoutX="313.0" layoutY="21.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Verwijder" />
    </children>
 </HBox>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.ModifyTournamentScreenController">
+    <children>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+            <font>
+                <Font name="JetBrains Mono Bold" size="14.0" />
+            </font>
+        </Button>
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="58.0" layoutY="60.0" prefHeight="203.0" prefWidth="485.0">
+            <content>
+                <VBox fx:id="teamsContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
+            </content>
+        </ScrollPane>
+        <Label fx:id="teamsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="5.0" prefHeight="48.0" prefWidth="152.0" text="Teams" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="JetBrains Mono Bold" size="35.0" />
+            </font>
+        </Label>
+      <Button defaultButton="true" layoutX="343.0" layoutY="346.0" mnemonicParsing="false" onAction="#onAddTeamButtonClick" prefHeight="44.0" prefWidth="249.0" text="Voeg team toe">
+         <font>
+            <Font name="JetBrains Mono Bold" size="21.0" />
+         </font>
+      </Button>
+      <Label fx:id="tournamentNameLabel" contentDisplay="CENTER" layoutX="14.0" layoutY="298.0" prefHeight="48.0" prefWidth="126.0" text="Name..." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="locationLabel" contentDisplay="CENTER" layoutX="13.0" layoutY="342.0" prefHeight="44.0" prefWidth="152.0" text="Location..." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="fieldsLabel" contentDisplay="CENTER" layoutX="174.0" layoutY="298.0" prefHeight="48.0" prefWidth="126.0" text="Velden: 5" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" contentDisplay="CENTER" layoutX="174.0" layoutY="340.0" prefHeight="48.0" prefWidth="126.0" text="18-03-2005" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="sportLabel" contentDisplay="CENTER" layoutX="405.0" layoutY="5.0" prefHeight="48.0" prefWidth="126.0" text="VOETBAL" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceBox" layoutX="339.0" layoutY="291.0" prefHeight="44.0" prefWidth="255.0" />
+    </children>
+</AnchorPane>

@@ -129,19 +129,19 @@ public class TournamentsScreenController {
                 dateLabel.setText("Datum: " + formattedDate);
             }
 
-            Button deleteButton = (Button) teamNode.lookup("#deleteTeamButton");
+            Button deleteButton = (Button) teamNode.lookup("#deleteTournamentButton");
             if (deleteButton != null) {
                 deleteButton.setOnAction(event -> {
                     removeTournament(name, location, sport);
                 });
             }
 
-            Button modifyButton = (Button) teamNode.lookup("#modifyTeamButton");
+            Button modifyButton = (Button) teamNode.lookup("#modifyTournamentButton");
             if (modifyButton != null) {
                 modifyButton.setOnAction(event -> {
-//                    Stage stage = (Stage) teamsLabel.getScene().getWindow();
-//                    ModifyTeamScreenController modifyTeamScreenController = WindowHelper.openWindow("modify-team-screen.fxml", "De Vuurtoren", 600, 400, stage, true);
-//                    modifyTeamScreenController.initialize(schoolName, schoolAddress);
+                    Stage stage = (Stage) tournamentLabel.getScene().getWindow();
+                    ModifyTournamentScreenController modifyTournamentScreenController = WindowHelper.openWindow("modify-tournament-screen.fxml", "De Vuurtoren", 600, 400, stage, true);
+                    modifyTournamentScreenController.initialize(name, location, numberOfFields, formattedDate, sport);
                 });
             }
 
