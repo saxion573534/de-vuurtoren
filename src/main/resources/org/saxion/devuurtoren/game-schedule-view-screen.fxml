@@ -2,43 +2,145 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Pos?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.GameScheduleController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.GameScheduleController">
     <children>
-        <!-- Titel van het toernooi -->
-        <Text text="Toernooipoule" layoutX="150" layoutY="20" font="Arial 24"/>
-
-        <!-- Grid voor de poule -->
-        <GridPane layoutX="50" layoutY="60" hgap="20" vgap="20" alignment="center">
-            <!-- Definieer de kolommen en rijen -->
-            <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS"/>
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints vgrow="ALWAYS"/>
-                <RowConstraints vgrow="ALWAYS"/>
-                <RowConstraints vgrow="ALWAYS"/>
-                <RowConstraints vgrow="ALWAYS"/>
-            </rowConstraints>
-
-            <!-- Kolom voor Teamnamen -->
-            <Label text="St. Jans College" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Label text="Verenigde Scholengemeenschap" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <Label text="Haven College" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <Label text="De Toekomstschool" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-
-            <!-- Invoervelden voor scores -->
-            <TextField fx:id="scoreStJans" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Score" />
-            <TextField fx:id="scoreVerenigdeScholengemeenschap" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="Score" />
-            <TextField fx:id="scoreHavenCollege" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Score" />
-            <TextField fx:id="scoreDeToekomstschool" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="Score" />
-        </GridPane>
-
-        <!-- Knop om de scores in te voeren -->
-        <Button text="Sla de scores op" layoutX="150" layoutY="300" fx:id="saveScoresButton"/>
-
+        <Button defaultButton="true" layoutX="225.0" layoutY="342.0" mnemonicParsing="false" onAction="#onSaveButtonClick" prefHeight="33.0" prefWidth="152.0" text="Opslaan">
+            <font>
+                <Font name="JetBrains Mono Bold" size="21.0" />
+            </font>
+        </Button>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+            <font>
+                <Font name="JetBrains Mono Bold" size="14.0" />
+            </font>
+        </Button>
+        <Label fx:id="title" layoutX="257.0" layoutY="4.0" text="Poule">
+            <font>
+                <Font size="35.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER" layoutX="105.0" layoutY="103.0" prefHeight="209.0" prefWidth="449.0" spacing="10.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(220,220,220);">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="32.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamAvsB" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamBvsA2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="109.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamAvsC" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamCvsA2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamAvsD" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamDvsA2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="185.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(220,220,220);">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamBvsA" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamAvsB2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                            </children>
+                        </HBox>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="32.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="109.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamBvsC" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamCvsB2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamBvsD" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamDvsB2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="240.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(220,220,220);">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamCvsA" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamAvsC2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="109.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamCvsB" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamBvsC2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                            </children>
+                        </HBox>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="32.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamCvsD" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamDvsC2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" layoutX="295.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(220,220,220);">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamDvsA" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(33, 150, 243);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamAvsD2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="109.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamDvsB" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(255, 87, 34);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamBvsD2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="131.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: rgb(200,200,200);">
+                            <children>
+                                <TextField fx:id="teamDvsC" alignment="CENTER" prefHeight="25.0" prefWidth="41.0" promptText="0" style="-fx-background-color: RGB(76, 175, 80);" />
+                                <Label text="-" />
+                                <TextField fx:id="teamCvsD2" alignment="CENTER" layoutX="22.0" layoutY="20.0" prefHeight="25.0" prefWidth="43.0" promptText="0" style="-fx-background-color: RGB(255, 193, 7);" />
+                            </children>
+                        </HBox>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="32.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <VBox layoutX="5.0" layoutY="113.0" prefHeight="209.0" prefWidth="113.0" spacing="40.0">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(33, 150, 243);" text="St. Jans College" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="115.0" style="-fx-background-color: RGB(255, 87, 34);" text="Verenigde College" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(76, 175, 80);" text="Haven College" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(255, 193, 7);" text="Toekomst College" />
+        </VBox>
+        <HBox alignment="CENTER" layoutX="114.0" layoutY="78.0" prefHeight="17.0" prefWidth="430.0" spacing="10.0">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(33, 150, 243);" text="St. Jans College" />
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(255, 87, 34);" text="Verenigde College" />
+            <Label alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(76, 175, 80);" text="Haven College" />
+            <Label alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: RGB(255, 193, 7);" text="Toekomst College" />
+        </HBox>
     </children>
 </AnchorPane>
