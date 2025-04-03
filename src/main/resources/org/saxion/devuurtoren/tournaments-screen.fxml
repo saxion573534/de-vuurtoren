@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.TournamentsScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.TournamentsScreenController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+      <Button layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
          <font>
             <Font name="JetBrains Mono Bold" size="14.0" />
          </font>

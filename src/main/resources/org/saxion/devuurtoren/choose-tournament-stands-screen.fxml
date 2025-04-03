@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.StandsScreenController">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="16.0" layoutY="62.0" prefHeight="323.0" prefWidth="569.0">
+         <content>
+            <VBox fx:id="tournamentsContainer" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="tournamentLabel" contentDisplay="CENTER" layoutX="191.0" layoutY="14.0" prefHeight="40.0" prefWidth="218.0" text="Kies Toernooi" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="JetBrains Mono Bold" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

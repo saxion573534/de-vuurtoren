@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.GameScheduleController">
+    <children>
+        <!-- Titel van het toernooi -->
+        <Text text="Toernooipoule" layoutX="150" layoutY="20" font="Arial 24"/>
+
+        <!-- Grid voor de poule -->
+        <GridPane layoutX="50" layoutY="60" hgap="20" vgap="20" alignment="center">
+            <!-- Definieer de kolommen en rijen -->
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+                <RowConstraints vgrow="ALWAYS"/>
+            </rowConstraints>
+
+            <!-- Kolom voor Teamnamen -->
+            <Label text="St. Jans College" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Verenigde Scholengemeenschap" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label text="Haven College" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label text="De Toekomstschool" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+            <!-- Invoervelden voor scores -->
+            <TextField fx:id="scoreStJans" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Score" />
+            <TextField fx:id="scoreVerenigdeScholengemeenschap" GridPane.columnIndex="1" GridPane.rowIndex="1" promptText="Score" />
+            <TextField fx:id="scoreHavenCollege" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Score" />
+            <TextField fx:id="scoreDeToekomstschool" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="Score" />
+        </GridPane>
+
+        <!-- Knop om de scores in te voeren -->
+        <Button text="Sla de scores op" layoutX="150" layoutY="300" fx:id="saveScoresButton"/>
+
+    </children>
+</AnchorPane>

@@ -87,6 +87,13 @@ public class ModifyTournamentScreenController {
     }
 
     @FXML
+    protected void onGameScheduleButtonClicked() {
+        Stage currentStage = (Stage) teamsLabel.getScene().getWindow();
+        WindowHelper.openWindow("game-schedule-view-screen.fxml", "De Vuurtoren", 600, 400, currentStage);
+    }
+
+
+    @FXML
     protected void onAddTeamButtonClick() {
         if (choiceBox.getValue() == null) {
             WindowHelper.showAlert("U heeft geen team geselecteerd!", Alert.AlertType.ERROR);

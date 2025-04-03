@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="541.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="nameLabel" prefHeight="32.0" prefWidth="276.0" text="Toernooi naam (Voetbal)">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <HBox.margin>
+            <Insets right="80.0" />
+         </HBox.margin>
+      </Label>
+      <Button fx:id="chooseStandButton" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Zie standen!" />
+   </children>
+</HBox>

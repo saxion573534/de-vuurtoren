@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.ModifyTournamentScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.saxion.devuurtoren.controllers.ModifyTournamentScreenController">
     <children>
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
+        <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="28.0" prefWidth="75.0" text="Terug!" textAlignment="CENTER">
             <font>
                 <Font name="JetBrains Mono Bold" size="14.0" />
             </font>
@@ -46,11 +46,16 @@
             <Font name="JetBrains Mono Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="sportLabel" contentDisplay="CENTER" layoutX="405.0" layoutY="5.0" prefHeight="48.0" prefWidth="126.0" text="VOETBAL" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="sportLabel" contentDisplay="CENTER" layoutX="377.0" layoutY="5.0" prefHeight="48.0" prefWidth="89.0" text="VOETBAL" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="JetBrains Mono Bold" size="15.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="choiceBox" layoutX="339.0" layoutY="291.0" prefHeight="44.0" prefWidth="255.0" />
+      <Button layoutX="475.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGameScheduleButtonClicked" prefHeight="30.0" prefWidth="106.0" text="Spelschema" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
