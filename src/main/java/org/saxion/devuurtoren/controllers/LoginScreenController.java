@@ -32,8 +32,8 @@ public class LoginScreenController {
         } else {
 
             // TODO: Remove when done testing...
-            Stage currentStage = (Stage) userTextField.getScene().getWindow();
-            WindowHelper.openWindow("main-menu.fxml", "De Vuurtoren", 600, 400, currentStage);
+//            Stage currentStage = (Stage) userTextField.getScene().getWindow();
+//            WindowHelper.openWindow("main-menu.fxml", "De Vuurtoren", 600, 400, currentStage);
             // TODO: Remove when done testing...
 
             errorText.setVisible(true);
