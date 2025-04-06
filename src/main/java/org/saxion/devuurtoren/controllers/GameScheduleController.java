@@ -75,7 +75,6 @@ public class GameScheduleController {
 
     @FXML
     protected void initialize(){
-        // Set up the number validation for each text field
         setupNumericValidation(teamAvsB);
         setupNumericValidation(teamAvsC);
         setupNumericValidation(teamAvsD);
@@ -89,7 +88,6 @@ public class GameScheduleController {
         setupNumericValidation(teamDvsB);
         setupNumericValidation(teamDvsC);
 
-        // Set up automatic synchronization between text fields
         syncTextFields();
     }
 
@@ -105,7 +103,6 @@ public class GameScheduleController {
     private void syncTextFields() {
 //        syncField(teamAvsB, teamAvsB2);
 
-        // Sync base fields with their corresponding '2' fields
         syncField(teamAvsB, teamAvsB2);
         syncField(teamAvsC, teamAvsC2);
         syncField(teamAvsD, teamAvsD2);
@@ -122,7 +119,6 @@ public class GameScheduleController {
         syncField(teamDvsB, teamDvsB2);
         syncField(teamDvsC, teamDvsC2);
 
-// Sync the reverse: '2' fields to base fields
         syncField(teamAvsB2, teamAvsB);
         syncField(teamAvsC2, teamAvsC);
         syncField(teamAvsD2, teamAvsD);
